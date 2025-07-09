@@ -21,6 +21,7 @@ type (
 		OAuth    OAuth
 		Xendit   Xendit
 		Supabase Supabase
+		Mail     Mail
 	}
 
 	App struct {
@@ -96,6 +97,8 @@ type (
 	Xendit struct {
 		APIKey        string `env:"XENDIT_API_KEY,required"`
 		CallbackToken string `env:"XENDIT_CALLBACK_TOKEN,required"`
+		SuccessURL    string `env:"XENDIT_SUCCESS_URL,required"`
+		FailureURL    string `env:"XENDIT_FAILURE_URL,required"`
 	}
 
 	Supabase struct {
@@ -104,6 +107,15 @@ type (
 		EndpointURL     string `env:"SUPABASE_ENDPOINT_URL,required"`
 		Region          string `env:"SUPABASE_REGION,required"`
 		BucketName      string `env:"SUPABASE_BUCKET_NAME,required"`
+	}
+
+	Mail struct {
+		SMTPHost     string `env:"MAIL_SMTP_HOST,required"`
+		SMTPPort     int    `env:"MAIL_SMTP_PORT,required"`
+		SMTPUsername string `env:"MAIL_SMTP_USERNAME,required"`
+		SMTPPassword string `env:"MAIL_SMTP_PASSWORD,required"`
+		FromEmail    string `env:"MAIL_FROM_EMAIL,required"`
+		FromName     string `env:"MAIL_FROM_NAME,required"`
 	}
 )
 
